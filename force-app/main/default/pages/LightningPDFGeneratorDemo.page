@@ -1,0 +1,279 @@
+<apex:page controller="DataDisplayController" showHeader="false">
+          <b style="font-family:Sans-serif;color:#c0c0c0;font-size:77px"><span style="padding-top:40px">Notification</span> <span style="float:right"><img src="{!URLFOR($Resource.enoLogo)}" style="height:130px;"/></span> </b>
+
+
+            <div style="font-family:Sans-serif;text-align:center;font-size:14px">
+                <b><u> Notification to DNO of installation of dedicated electric vehicle charging equipment </u> </b>
+            </div>
+            
+            <div style= "margin-top:14px;font-family:Sans-serif;font-size:14px">
+                <b>This  form  must  be  sent  by  the  installer  to  notify  the  DNO  directly.    For  help  identifying  the correct DNO and their contact details please visit </b>
+            </div>
+            <a href="http://www.energynetworks.org/electricity/futures/electric-vehicle-infrastructure.html">http://www.energynetworks.org/electricity/futures/electric-vehicle-infrastructure.html</a>
+            
+            <div style="font-family:Sans-serif;font-size:14px">
+                <p>
+                    <b>Please note</b> that an 'adequacy of the supply' assessment, highlighted in the IET COP, is required prior to any EV charge point installation.This requires a load survey to calculate the new <b>Maximum Demand (Load) after diversity (ADMD)</b>, including the new electric vehicle charging equipment at the property. While the DNOs only require a notification in the interim, care should be taken to identify instances where the DNO should be contacted prior to installation.
+                </p>
+            </div>
+            
+            <div style="font-family:Sans-serif;font-size:14px">
+                <p>
+                    DNO should be contacted <b>prior to installation</b> in the following instances;
+                </p>
+                <ul>
+                    <li>Where there is an identified issue with the cut-out OR uncertainty on the adequacy of the cut-out</li>
+                    <li>Where the cut-out rating is <b>unknown</b>, and the ADMD is greater than 60A (13.8kVA) </li>
+                    <li>Where the cut-out rating is <b>known</b>, and the ADMD is <b>greater than</b> the cut-out rating</li>
+                    <li>There are safety concerns over the adequacy of the supply cut-out </li>
+                </ul>
+            </div>
+            
+            <div>
+                <table border="1" style= "border: solid 1px #020202;border-collapse:collapse;width:100%;font-family:Sans-serif;font-size:14px">    
+                    
+                    <tr> 
+                        <td style="text-align:center" colspan="2">Date of installation
+                        </td>
+                        <td Style="text-align:center" colspan="2">
+                            {}
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td style="width:15%;text-align:center" rowspan="4">
+                            Full address of installation
+                        </td>
+                        <td style="width:20%;text-align:center">
+                            Address line 1
+                        </td>
+                        <td style="width:65%;text-align:center">
+                            {}
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td style="width:15%;text-align:center">
+                            Address line 2
+                        </td>
+                        <td style="width:65%;text-align:center">
+                            {}
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td style="width:15%;text-align:center">
+                            Town
+                        </td>
+                        <td style="width:65%">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width:15%;text-align:center">
+                            Postcode (if known)
+                        </td>
+                        <td style="width:65%;text-align:center">
+                            {}
+                        </td>
+                    </tr>
+                    </table>
+                    <table border="1" style= "border: solid 1px #020202;border-collapse:collapse;width:100%;font-family:Sans-serif;font-size:14px">
+                    
+                    <tr>
+                        <td style="width:60%;text-align:center" colspan="2">
+                            <b><span style="color:red">compulsory</span></b><br/>
+                            21-digit Meter Point Administration Number (MPAN) or the 11-digit Meter Point Reference Number (MPRN)in Northern Irelandfor the meter to which the electric vehicle charging equipment is connected. Digits 9 and 10 identify the Distribution Network Operator
+                        </td>
+                        <td style="width:40%;text-align:center">
+                            {}
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td style="width:60%;text-align:center" colspan="2">
+                            <b>Maximum Demand</b><br/>
+                            Maximum demand (load) of property includingEV installation, concluded from a Load Survey
+                        </td>
+                        <td style="width:40%;text-align:center">
+                            {}
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td style="width:60%;text-align:center;padding:10px;" colspan="2">
+                            <b>Property’s Service Cut Out Rating</b>
+                        </td>
+                        <td style="width:40%;text-align:center">
+                            {}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width:60%;text-align:center" colspan="2">
+                            <b>Details of New Installation</b><br/>
+                            Maximum demand from all electric vehicle charging equipment connected to the abovemeter, including any previously connected charging equipment that is available for use or where multiple charge points have been installed
+                        </td>
+                        <td style="width:40%;text-align:center">
+                        </td>
+                    </tr>
+                    </table>
+
+                    <table border="1" style= "border: solid 1px #020202;border-collapse:collapse;width:100%;font-family:Sans-serif;font-size:14px"> 
+                    <tr>
+                        <td style="width:60%;text-align:center" colspan="2">
+                            Earthing arrangements installed –Detail the final earthing arrangements that have been applied for theinstallation of the charging point as per BS 7671 e.g. protective multiple earthing (PME).
+                        </td>
+                        <td style="width:40%;text-align:center">
+                            {}
+                        </td>
+                    </tr>
+
+                    </table>
+                    <b style="font-family:Sans-serif;color:#c0c0c0;font-size:77px"><span style="padding-top:40px">Notification</span> <span style="float:right"><img src="{!URLFOR($Resource.enoLogo)}" style="height:130px;"/></span> </b>
+
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+
+                    <table border="1" style= "border: solid 1px #020202;border-collapse:collapse;width:100%;font-family:Sans-serif;font-size:14px">
+                    <tr>
+                        <td style="width:15%;text-align:center" colspan="3">
+                            Installer
+                        </td>
+                        <td style="width:25%;text-align:center">
+                            Name
+                        </td>
+                        <td style="width:60%;text-align:center">
+                            {}
+                        </td>
+                    </tr>
+                    </table>
+                    <table border="1" style= "border: solid 1px #020202;border-collapse:collapse;width:100%;font-family:Sans-serif;font-size:14px">
+
+                    <tr>
+                        <td style="width:15%;text-align:center">
+
+                        </td>
+
+                        <td style="width:25%;text-align:center">
+                            Telephone / email
+                        </td>
+
+                        <td style="width:60%;text-align:center">
+                            0207 247 4114 / support@pod-point.com
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width:15%;text-align:center" rowspan="4">
+                            Charging point owner
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td style="width:25%;text-align:center">
+                            Name
+                        </td>
+
+                        <td style="width:60%;text-align:center">
+
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td style="width:25%;text-align:center">
+                            Telephone / email
+                        </td>
+
+                        <td style="width:60%;text-align:center">
+
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td style="width:25%;text-align:center">
+                            Address (if different from installation address)
+                        </td>
+
+                        <td style="width:60%;text-align:center">
+
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <br/>
+
+                <b>For the following questions, please choose from the options given</b>
+                <br/>
+
+                <table border="1" style= "border: solid 1px #020202;border-collapse:collapse;width:100%;font-family:Sans-serif;font-size:14px">
+                    <tr>
+                        <td style="width:40%;text-align:center" colspan="2">
+                            Type of installation
+                        </td>
+                        <td style="width:60%;text-align:center">
+                            Private –Domestic
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width:40%;text-align:center" colspan="2">
+                            Is the property on a looped service?
+                        </td>
+                        <td style="width:60%;text-align:center">
+                            Private –Domestic
+                        </td>
+                    </tr>
+                </table>
+
+                <table border="1" style= "border: solid 1px #020202;border-collapse:collapse;width:100%;font-family:Sans-serif;font-size:14px">
+                    <tr>
+                        <td style="width:70%;text-align:center" colspan="1">
+                            Has DNO been contacted prior toinstallation?e.g. new connection, addition to supply capacity, assessment of network impact
+                        </td>
+                        <td style="width:30%;text-align:center">
+                            
+                        </td>
+                    </tr>
+                </table>
+
+    <apex:includeLightning />
+    
+	<!-- Page code -->
+    <apex:form >
+		<apex:inputhidden id="hidData" value="{!PDFData}"/>
+    
+    	<apex:actionfunction name="jsGeneratePDF" action="{!downloadPDF}" />
+        
+        <div id="lightning" />
+        
+    <script>
+    	function saveData(data, callback){
+            var hidData = document.getElementById('{!$Component.hidData}');
+            hidData.value = JSON.stringify(data);
+            
+            //invoke PDF Generation
+            jsGeneratePDF();
+         
+            //invoke callback;
+            if(typeof callback == 'function') callback();
+        }
+        
+    	
+    	function loadComponents(){
+            console.log("Loading lightning component: DataProcessor");
+            
+            $Lightning.use("c:LightningPDFGeneratorDemoApp", function() {
+                $Lightning.createComponent("c:DataProcessor",
+                { 
+                    sendData : saveData
+                },
+                "lightning",
+                function(cmp) {
+                    // do some stuff
+                });
+            });
+        }
+		
+		loadComponents();
+    </script>
+    </apex:form>
+</apex:page>

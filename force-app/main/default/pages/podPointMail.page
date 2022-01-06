@@ -1,0 +1,146 @@
+<apex:page renderAs="PDF">
+    <apex:includeLightning />
+    <html>
+        <head>
+            <style></style>
+        </head>
+        
+        <body>
+            <div>
+                <b style="font-family:Sans-serif;color:#c0c0c0;font-size:77px">Notification</b>
+                <img src="{!URLFOR($Resource.enoLogo)}" style="height:130px;"/>
+                
+            </div>
+            <div id="lightning" />
+
+    <script>
+        $Lightning.use("c:helloWorldApp", function() {
+          $Lightning.createComponent("c:helloWorld",     {}  ,       
+              "lightning",
+              function(cmp) {
+                // do some stuff
+              }
+          );
+        });
+    </script>
+            
+            
+            
+            
+            <div style="text-align:center">
+                <b><u> Notification to DNO of installation of dedicated electric vehicle charging equipment </u> </b>
+            </div>
+            
+            <div style= "margin-top:14px">
+                <b>This  form  must  be  sent  by  the  installer  to  notify  the  DNO  directly.    For  help  identifying  the correct DNO and their contact details please visit </b>
+            </div>
+            <a href="http://www.energynetworks.org/electricity/futures/electric-vehicle-infrastructure.html">http://www.energynetworks.org/electricity/futures/electric-vehicle-infrastructure.html</a>
+            
+            <div>
+                <p>
+                    <b>Please note</b> that an 'adequacy of the supply' assessment, highlighted in the IET COP, is required prior to any EV charge point installation.This requires a load survey to calculate the new <b>Maximum Demand (Load) after diversity (ADMD)</b>, including the new electric vehicle charging equipment at the property. While the DNOs only require a notification in the interim, care should be taken to identify instances where the DNO should be contacted prior to installation.
+                </p>
+            </div>
+            
+            <div>
+                <p>
+                    DNO should be contacted <b>prior to installation</b> in the following instances;
+                </p>
+                <ul>
+                    <li>Where there is an identified issue with the cut-out OR uncertainty on the adequacy of the cut-out</li>
+                    <li>Where the cut-out rating is <b>unknown</b>, and the ADMD is greater than 60A (13.8kVA) </li>
+                    <li>Where the cut-out rating is <b>known</b>, and the ADMD is <b>greater than</b> the cut-out rating</li>
+                    <li>There are safety concerns over the adequacy of the supply cut-out </li>
+                </ul>
+            </div>
+            
+            <div>
+                <table border="1" style= "width:100%">    
+                    
+                    <tr> 
+                        <td style="text-align:center;width:35%">Date of installation
+                        </td>
+                        <td colspan="2">
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td style="width:15%;text-align:center" rowspan="4">
+                            Full address of installation
+                        </td>
+                        <td style="width:20%;text-align:center">
+                            Address line 1
+                        </td>
+                        <td style="width:65%">
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td style="width:15%;text-align:center">
+                            Address line 2
+                        </td>
+                        <td style="width:65%">
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td style="width:15%;text-align:center">
+                            Town
+                        </td>
+                        <td style="width:65%">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width:15%;text-align:center">
+                            Postcode (if known)
+                        </td>
+                        <td style="width:65%">
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td style="width:60%;text-align:center">
+                            <b>compulsory</b><br/>
+                            21-digit Meter Point Administration Number (MPAN) or the 11-digit Meter Point Reference Number (MPRN)in Northern Irelandfor the meter to which the electric vehicle charging equipment is connected. Digits 9 and 10 identify the Distribution Network Operator
+                        </td>
+                        <td style="width:40%">
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td style="width:60%;text-align:center">
+                            <b>Maximum Demand</b><br/>
+                            Maximum demand (load) of property includingEV installation, concluded from a Load Survey
+                        </td>
+                        <td style="width:40%">
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td style="width:60%;text-align:center;padding:10px;">
+                            <b>Property’s Service Cut Out Rating</b>
+                        </td>
+                        <td style="width:40%">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width:60%;text-align:center">
+                            <b>Details of New Installation</b><br/>
+                            Maximum demand from all electric vehicle charging equipment connected to the abovemeter, including any previously connected charging equipment that is available for use or where multiple charge points have been installed
+                        </td>
+                        <td style="width:40%">
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td style="width:60%;text-align:center">
+                            Earthing arrangements installed –Detail the final earthing arrangements that have been applied for theinstallation of the charging point as per BS 7671 e.g. protective multiple earthing (PME).
+                        </td>
+                        <td style="width:40%">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </body>
+    </html>
+</apex:page>

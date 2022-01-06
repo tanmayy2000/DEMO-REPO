@@ -1,0 +1,27 @@
+<apex:page standardController="Employee__c"  renderAs="pdf" applyBodyTag="false">
+ 
+        <apex:image url="{!$Resource.SalesforceLogo}" width="300" height="150"/>
+    
+    <head>
+        <style type="text/css">
+            body { font-family: Arial Unicode MS; }
+        </style>
+    </head>
+    <h1>Employee Information</h1>
+    <apex:panelGrid columns="2" border="1" cellspacing="0" cellPadding="5" width="100%">
+        <apex:outputText value="{!$ObjectType.Employee__c.fields.Name.label}" />
+        <apex:outputText value="{!Employee__c.Name}" />
+        <apex:outputText value="{!$ObjectType.Employee__c.fields.EmployeeId__c.label}" />
+        <apex:outputText value="{!Employee__c.EmployeeId__c}" />
+        <apex:outputText value="{!$ObjectType.Employee__c.fields.Phone__c.label}" />
+        <apex:outputText value="{!Employee__c.Phone__c}" />
+        <apex:outputText value="{!$ObjectType.Employee__c.fields.Email__c.label}" />
+        <apex:outputText value="{!Employee__c.Email__c}" />
+        <apex:outputText value="{!$ObjectType.Employee__c.fields.Address__c.label}" />
+        <apex:outputText value="{!Employee__c.Address__c}" />
+        <apex:outputText value="{!$ObjectType.Employee__c.fields.Company__c.label}" />
+        <apex:outputText value="{!Employee__c.Company__r.Name}" />
+        
+        
+    </apex:panelGrid>
+</apex:page>

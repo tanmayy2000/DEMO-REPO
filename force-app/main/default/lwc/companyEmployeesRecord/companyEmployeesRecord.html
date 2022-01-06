@@ -1,0 +1,151 @@
+<template>
+  <lightning-card>
+    <div
+      class="slds-text-align_center"
+      style="padding: 0.5rem; background: #dde5f0"
+    >
+      <div class="slds-text-heading_large">
+        <strong> Employee Records</strong>
+      </div>
+    </div>
+    <div class="slds-var-p-around_xx-large">
+      <div class="slds-box">
+        <lightning-layout>
+          <div class="slds-var-p-around_x-small">
+            <div class="slds-float_left">
+              <lightning-combobox
+                value={pageSize}
+                onchange={handleChangePageSize}
+                placeholder="Select page size"
+                label="Size"
+                style="color: grey; width: 150px"
+                options={options}
+              >
+              </lightning-combobox>
+            </div>
+          </div>
+
+          <lightning-layout-item>
+            <div class="slds-var-p-around_xx-small">
+              <div style="position: absolute; top: 9rem; right: 4rem">
+                <lightning-input
+                  type="search"
+                  onchange={handleKeyChange}
+                  label="Search"
+                  value={searchKey}
+                ></lightning-input>
+              </div>
+            </div>
+          </lightning-layout-item>
+        </lightning-layout>
+
+        <br />
+
+        <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+          <thead>
+            <tr class="slds-line-height_reset">
+              <th class="" scope="col">
+                <div class="slds-truncate" title="Name">Name</div>
+              </th>
+              <th class="" scope="col">
+                <div class="slds-truncate" title="Address__c">Address</div>
+              </th>
+              <th class="" scope="col">
+                <div class="slds-truncate" title="Company__c">Company</div>
+              </th>
+              <th class="" scope="col">
+                <div class="slds-truncate" title="Email__c">Email</div>
+              </th>
+              <th class="" scope="col">
+                <div class="slds-truncate" title="EmployeeId__c">Id</div>
+              </th>
+              <th class="" scope="col">
+                <div class="slds-truncate" title="Phone__c">Phone</div>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <template for:each={data} for:item="emp">
+              <tr key={emp.Id}>
+                <th scope="col">
+                  <div>{emp.Name}</div>
+                </th>
+                <th scope="col">
+                  <div>{emp.Address__c}</div>
+                </th>
+                <th scope="col">
+                  <div>{emp.Company__c}</div>
+                </th>
+                <th scope="col">
+                  <div>
+                    <lightning-formatted-email
+                      value={emp.Email__c}
+                    ></lightning-formatted-email>
+                  </div>
+                </th>
+                <th scope="col">
+                  <div>{emp.EmployeeId__c}</div>
+                </th>
+                <th scope="col">
+                  <div>
+                    <lightning-formatted-phone
+                      value={emp.Phone__c}
+                    ></lightning-formatted-phone>
+                  </div>
+                </th>
+              </tr>
+            </template>
+          </tbody>
+        </table>
+
+        <lightning-layout>
+          <div style="position: absolute; bottom: 1.5rem; left: 3rem">
+            <lightning-layout-item padding="around-small">
+              Showing {startingRecord} to {endingRecord} out of
+              {totalRecountCount} entries
+            </lightning-layout-item>
+          </div>
+          <div style="position: absolute; bottom: 1.5rem; left: 30rem">
+            <lightning-layout-item padding="around-small">
+              Pages: {page}/{totalPage}
+            </lightning-layout-item>
+          </div>
+
+          <div style="position: absolute; bottom: 1rem; right: 21.5rem">
+            <lightning-layout-item padding="around-small">
+              <lightning-button
+                label="<< First"
+                onclick={handleFirstPage}
+              ></lightning-button>
+            </lightning-layout-item>
+          </div>
+
+          <div style="position: absolute; bottom: 1rem; right: 14.5rem">
+            <lightning-layout-item padding="around-small">
+              <lightning-button label="< Previous" onclick={previousHandler}>
+              </lightning-button>
+            </lightning-layout-item>
+          </div>
+
+          <div style="position: absolute; bottom: 1rem; right: 9rem">
+            <lightning-layout-item padding="around-small">
+              <lightning-button
+                label="Next >"
+                onclick={nextHandler}
+              ></lightning-button>
+            </lightning-layout-item>
+          </div>
+
+          <div style="position: absolute; bottom: 1rem; right: 3rem">
+            <lightning-layout-item padding="around-small">
+              <lightning-button
+                label="Last >>"
+                onclick={handleLastPage}
+              ></lightning-button>
+            </lightning-layout-item>
+          </div>
+        </lightning-layout>
+      </div>
+    </div>
+  </lightning-card>
+</template>

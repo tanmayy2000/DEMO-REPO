@@ -1,0 +1,25 @@
+<template>
+    <lightning-card>
+                <div style="height: 300px;">
+                    <template if:true={contacts.data}>
+                    <lightning-datatable
+                            key-field="id"
+                            data={contacts.data}
+                            row-number-offset={rowOffset}
+                            columns={columns}>
+                    </lightning-datatable>
+                </template>
+                </div>
+
+                <div class="slds-align_absolute-center" style="height:5rem">
+    
+        <lightning-button label="Previous"></lightning-button>
+        <lightning-button label="Next"></lightning-button>
+    </div>
+    
+
+</lightning-card>
+
+    
+    
+</template>

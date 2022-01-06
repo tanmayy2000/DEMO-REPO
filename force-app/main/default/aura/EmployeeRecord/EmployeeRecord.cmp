@@ -1,0 +1,147 @@
+<aura:component controller="EmployeeRecordsController" implements="forceCommunity:availableForAllPageTypes" access="global">
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" /> 
+    <aura:attribute name="employeeId" type="string"/>
+    <aura:attribute name="employeeListById" type="List"/> 
+    <aura:attribute name="isOpen" type="boolean" default="false"/>
+    <div class="slds-m-around_xx-large">  
+        <aura:if isTrue="{!v.isOpen}">   
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">                   
+                    <header class="slds-modal__header">
+                        <lightning:buttonIcon iconName="utility:close"
+                                              onclick="{! c.closeModel }"
+                                              alternativeText="close"
+                                              variant="bare-inverse"
+                                              class="slds-modal__close"/>
+                        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Employee Record</h2>
+                    </header>
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">  
+                            <tbody>
+                                <aura:iteration items="{!v.employeeListById}" var="emp"> 
+                                    {!emp.Name}
+                                    <br/>
+                                    {!emp.EmployeeId__c}
+                                    <br/>
+                                    {!emp.Email__c}
+                                    <br/>
+                                    {!emp.Company__r.Name}
+                                    <br/>
+                                    {!emp.Address__c}
+                                    <br/>
+                                    {!emp.Phone__c}                 
+                                </aura:iteration> 
+                            </tbody>
+                    </div>
+                    <footer class="slds-modal__footer">
+                        <lightning:button variant="neutral" 
+                                          label="Close"
+                                          title="Close"
+                                          onclick="{! c.closeModel }"/>
+                        <lightning:button variant="brand" 
+                                          label="Open as PDF"
+                                          title="Open as PDF"
+                                          onclick="{! c.likenClose }"/>
+                    </footer>
+                    
+                </div>
+            </section>     
+        </aura:if>
+    </div>
+    <aura:attribute name="employeeList" type="Employee__c[]"/>
+    <aura:attribute name="PageNumber" type="integer" default="1"/>
+    <aura:attribute name="TotalPages" type="integer" default="0"/>
+    <aura:attribute name="TotalRecords" type="integer" default="0"/>
+    <aura:attribute name="RecordStart" type="integer" default="0"/>
+    <aura:attribute name="RecordEnd" type="integer" default="0"/>
+    <div class="slds-m-around_xx-large">
+        
+        <strong><h1 class="slds-text-heading_large slds-text-align_center" style="padding:0.5rem;background:LightGray">Employee Records</h1></strong>
+        <div class="slds-p-around_xx-large">
+            <div class="slds-box">
+                <div class="slds-float_left">
+                    <ui:inputSelect aura:id="pageSize" label="Display Records Per Page: " change="{!c.onSelectChange}">
+                        <ui:inputSelectOption text="5" label="5" value="true"/>
+                        <ui:inputSelectOption text="10" label="10"/>
+                        <ui:inputSelectOption text="15" label="15"/>
+                        <ui:inputSelectOption text="20" label="20"/>
+                    </ui:inputSelect>
+                    <br/>
+                </div>
+                <div style="position: absolute; top: 9rem; right: 10rem">
+                    <lightning:input type="text" name="searchKey" aura:id="searchKey" onchange="{!c.searchKeyChange}" placeholder="Search by Name" />
+                </div>
+                <br/>
+                <br/>
+                
+                
+                <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+                    <thead>
+                        <tr class="slds-text-title_caps">
+                            <th scope="col">
+                                <strong><div class="slds-truncate" title="Name">Name</div></strong>
+                            </th>
+                            <th scope="col">
+                                <strong><div class="slds-truncate" title="EmployeeId__c">Id</div></strong>
+                            </th>
+                            <th scope="col">
+                                <strong><div class="slds-truncate" title="Email__c">Email</div></strong>
+                            </th>
+                            <th scope="col">
+                                <strong><div class="slds-truncate" title="Company__r.Name">Company</div></strong>
+                            </th>
+                            <th scope="col">
+                                <strong><div class="slds-truncate" title="Address__c">Address</div></strong>
+                            </th>
+                            <th scope="col">
+                                <strong><div class="slds-truncate" title="Phone__c">Phone</div></strong>
+                            </th>
+                            <th scope="col">
+                                <strong><div class="slds-truncate" title="View">View</div></strong>
+                            </th> 
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <aura:iteration items="{!v.employeeList}" var="emp"> 
+                            <tr>
+                                <th scope="row" data-label="Name">
+                                    <div class="slds-truncate" title="{!emp.Name}">{!emp.Name}</div>
+                                </th>
+                                <th scope="row" data-label="EmployeeId__c">
+                                    <div class="slds-truncate" title="{!emp.EmployeeId__c}">{!emp.EmployeeId__c}</div>
+                                </th>
+                                <th scope="row" data-label="Email__c">
+                                    <div class="slds-truncate" title="{!emp.Email__c}">{!emp.Email__c}</div>
+                                </th>
+                                <th scope="row" data-label="Company__r.Name">
+                                    <div class="slds-truncate" title="{!emp.Company__r.Name}">{!emp.Company__r.Name}</div>
+                                </th>
+                                <th scope="row" data-label="Address__c">
+                                    <div class="slds-truncate" title="{!emp.Address__c}">{!emp.Address__c}</div>
+                                </th>
+                                <th scope="row" data-label="Phone__c">
+                                    <div class="slds-truncate" title="{!emp.Phone__c}">{!emp.Phone__c}</div>
+                                </th>
+                                <th class="test" scope="row" data-label="View">
+                                    <lightning:button aura:id="emp" name="{!emp.Id}" variant="brand-outline" label="View" iconName="utility:preview" iconPosition="right" onclick="{! c.openModel }" /> 
+                                </th>
+                            </tr>
+                        </aura:iteration> 
+                    </tbody>
+                </table>
+                
+                <div class="slds-clearfix">
+                    <div class="slds-page-header" role="banner">
+                        <div class="slds-float_right">   
+                            <lightning:button  aura:id="firstPage" label="First" onclick="{!c.handleFirst}" />
+                            <lightning:button disabled="{!v.PageNumber == 1}" variant="brand" aura:id="prevPage" label="Prev" onclick="{!c.handlePrev}" />            
+                            <lightning:button disabled="{!v.PageNumber == v.TotalPages}" aura:id="nextPage" variant="brand" label="Next" onclick="{!c.handleNext}"/>                         
+                            <lightning:button  aura:id="lastPage" label="Last" onclick="{!c.handleLast}"/>
+                        </div>
+                        <p class="slds-page-header__title">Showing {!v.RecordStart}-{!v.RecordEnd} out of {!v.TotalRecords} Entries | Page {!v.PageNumber} of {!v.TotalPages}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>    
+</aura:component>

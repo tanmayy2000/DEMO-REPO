@@ -1,0 +1,139 @@
+<apex:page applyHtmlTag="false" controller="CompanyEmployeePageController" showHeader="false" applyBodyTag="false" standardStylesheets="false" renderAs="pdf">
+    
+    <html>
+        <head>
+            <style type="text/css" media="print">
+                @page{
+                margin-top: 10%;  
+                margin-bottom:40%;
+                margin-right: 7%;
+                margin-left: 5%;
+                size: A4;
+                @bottom-center {
+                content: element(footer);
+                }
+                }
+                div.footer {
+                display: block;
+                padding: 20px;
+                position: running(footer);
+                }
+                table {
+                border-width: thin;
+                border-collapse: collapse;
+                border:1px solid black;
+                border-radius: 30px;
+                }
+                th, td { 
+                width: 140px;
+                padding: 7.5px; 
+                }
+                th{
+                background-color: #78B13D;
+                }
+                .UpperSpan{
+                margin-left: 27%;
+                }
+                .borderClass {
+                border:1px solid black;
+                }
+                
+            </style>
+        </head>
+        <body>
+            <div class="footer" style="border-top: 1px solid black;" name="footer">
+                <div id="footerDiv" style="width:60%;font-size:11px;float:right;padding:5px;">
+                    
+                    
+                    <table style="float:right !important;width:37%;">
+                        <apex:repeat value="{!companyDetails}" var="Company__c">
+                            <tr> 
+                                <td class="borderClass">Total Employees</td> 
+                                <td class="borderClass">2</td> 
+                            </tr>
+                            <tr> 
+                                <td class="borderClass">Annual Revenue</td> 
+                                <td class="borderClass">$ {!Company__c.Annual_Revenue__c}</td> 
+                            </tr> 
+                            <tr> 
+                                <td class="borderClass">Total Profit</td> 
+                                <td class="borderClass">$ {!Company__c.Total_Profit__c}</td> 
+                            </tr> 
+                            
+                        </apex:repeat>
+                    </table>
+                </div>
+            </div>
+            <div >
+                <div class="" style="float:left !important">
+                    Cloud Analogy <br/>
+                    Kurukshetra <br/>
+                    131- Hudda Market <br/>
+                    Haryana<br/>
+                    India<br/><br/>
+                    <span style="font-weight:lighter;margin-right:8.5%;">Email:</span>info@cloudanalogy.com<br/>
+                    <span style="font-weight:lighter;margin-right:10%">Tel.:</span>+91 (01744) 230855 <br/>                   
+                </div>
+                <div class="" style="float:right !important">
+                    <apex:image url="{!$Resource.PodPoint}" width="320" height="100"/>
+                </div>
+            </div>
+            <apex:repeat value="{!companyDetails}" var="Company__c">
+                <div style="float:left; border:1px solid black;margin-top:35px; width:40%;padding:10px;">
+                    {!Company__c.Owner.Name}<br/>
+                    {!Company__c.Address__c}<br/>
+                    {!Company__c.Pincode__c}<br/>
+                </div>
+            </apex:repeat>
+            
+            
+            <table style="margin-top:35px;float:right !important;"> 
+                <apex:repeat value="{!companyDetails}" var="Company__c">
+                    <tr> 
+                        
+                        <td class="borderClass">Website</td>
+                        <td class="borderClass">{!Company__c.Site__c}</td> 
+                    </tr> 
+                    <tr> 
+                        <td class="borderClass">Status</td> 
+                        <td class="borderClass">{!Company__c.Status__c}</td> 
+                    </tr> 
+                    <tr> 
+                        <td class="borderClass">Type</td> 
+                        <td class="borderClass">{!Company__c.Type__c}</td> 
+                    </tr>
+                </apex:repeat>
+            </table>
+            
+            <div style="float:right; padding-top:10px;padding-left:150px;"></div>
+            <table style="margin-top:60%; border: 2px solid black;">
+                <tr>
+                    <th>Employee Name</th>
+                    <th>Id</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                </tr>
+                <apex:repeat value="{!employeeList}" var="Employee__c">
+                    <tr>
+                        <td>
+                            {!Employee__c.Name}
+                        </td>
+                        <td>
+                            {!Employee__c.EmployeeId__c}
+                        </td>
+                        <td>
+                            {!Employee__c.Phone__c}
+                        </td>
+                        <td>
+                            {!Employee__c.Email__c}
+                        </td>
+                        <td>
+                            {!Employee__c.Address__c}
+                        </td>
+                    </tr>
+                </apex:repeat>
+            </table>
+        </body>
+    </html>
+</apex:page>

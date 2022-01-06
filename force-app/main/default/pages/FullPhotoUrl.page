@@ -1,0 +1,5 @@
+<apex:page controller="cls_PhotoUrl">
+            <apex:form >
+                <apex:image value="{!Photolink}"/>
+           </apex:form>
+        </apex:page>

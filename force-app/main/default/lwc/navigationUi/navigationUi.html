@@ -1,0 +1,190 @@
+<!-- sldsValidatorIgnore -->
+<template>
+  <lightning-card>
+  <lightning-layout>
+      <lightning-layout-item size="4" padding="around-small">
+        <lightning-button onclick={handleSetActiveSectionC} label="Open Section C"></lightning-button>
+        <lightning-accordion class="example-accordion"
+        onsectiontoggle={handleToggleSection}
+        active-section-name="B">
+<lightning-accordion-section name="A" label="Accordion Title A">
+<lightning-button-menu slot="actions"
+                 alternative-text="Show menu"
+                 icon-size="x-small"
+                 menu-alignment="right">
+<lightning-menu-item value="New" label="Menu Item One"></lightning-menu-item>
+<lightning-menu-item value="Edit" label="Menu Item Two"></lightning-menu-item>
+</lightning-button-menu>
+<p>This is the content area for section A.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>The section height expands to fit your content.</p>
+</lightning-accordion-section>
+
+<lightning-accordion-section name="B" label="Accordion Title B">
+<p>This is the content area for section B.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>The section height expands to fit your content.</p>
+</lightning-accordion-section>
+
+<lightning-accordion-section name="C" label="Accordion Title C">
+<p>This is the content area for section C.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>The section height expands to fit your content.</p>
+</lightning-accordion-section>
+</lightning-accordion>
+      </lightning-layout-item >
+      <lightning-layout-item size="4" padding="around-small"></lightning-layout-item>
+      <lightning-layout-item size="4" padding="around-small">
+        <lightning-tabset variant="scoped" active-tab-value="2">
+          <template for:each={tabs} for:item="tab">
+              <lightning-tab label={tab.label} key={tab.value} value={tab.value} onactive={handleActive}>
+                  {tab.content}
+              </lightning-tab>
+          </template>
+      </lightning-tabset>
+      <lightning-formatted-text value={activeValueMessage} ></lightning-formatted-text>
+      </lightning-layout-item>
+  </lightning-layout>
+  <lightning-layout>
+    
+      <lightning-layout-item size="8.4" padding="around-small">
+          <div if:true={next1}>
+          <section aria-describedby="dialog-body-id-107" aria-label="Dialog Title" class="slds-popover slds-nubbin_top" role="dialog">
+            <button class="slds-button slds-button_icon slds-button_icon-small slds-float_right slds-popover__close" title="Close dialog">
+                <svg class="slds-button__icon" aria-hidden="true">
+                  <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+                </svg>
+                <span class="slds-assistive-text">Close dialog</span>
+              </button>
+              <div class="slds-popover__body" id="dialog-body-id-107">
+                <div class="slds-media">
+                  <div class="slds-media__body">
+                    <p>This is an accordion.</p>
+                  </div>
+                </div>
+              </div>
+              <footer class="slds-popover__footer">
+                <div class="slds-grid slds-grid_vertical-align-center">
+                  <lightning-button class="slds-button slds-button_neutral slds-col_bump-left" variant="brand-outline" onclick={handleSkip}>Skip</lightning-button>
+                  <lightning-button class="slds-button slds-button_neutral slds-col_bump-left" variant="brand" onclick={handleNext1}>Next</lightning-button>
+                </div>
+              </footer>
+            </section>
+          </div>
+      </lightning-layout-item>
+    
+    
+      <lightning-layout-item size="10" padding="around-small">
+          <div if:true={next2}>
+          <section aria-describedby="dialog-body-id-107" aria-label="Dialog Title" class="slds-popover slds-nubbin_top" role="dialog">
+              <button class="slds-button slds-button_icon slds-button_icon-small slds-float_right slds-popover__close" title="Close dialog">
+                <svg class="slds-button__icon" aria-hidden="true">
+                  <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+                </svg>
+                <span class="slds-assistive-text">Close dialog</span>
+              </button>
+              <div class="slds-popover__body" id="dialog-body-id-108">
+                <div class="slds-media">
+                  <div class="slds-media__body">
+                    <p>You are now on tabset. Please click next to go on spinners. </p>
+                  </div>
+                </div>
+              </div>
+              <footer class="slds-popover__footer">
+                <div class="slds-grid slds-grid_vertical-align-center">
+                  <lightning-button class="slds-button slds-button_neutral slds-col_bump-left" variant="brand-outline" onclick={handleSkip}>Skip</lightning-button>
+                  <lightning-button class="slds-button slds-button_neutral slds-col_bump-left" variant="brand" onclick={handleNext2}>Next</lightning-button>
+                </div>
+              </footer>
+            </section>
+          </div>
+      </lightning-layout-item>
+ 
+  </lightning-layout>
+  <lightning-layout>
+      
+      <lightning-layout-item size="8.4" padding="around-small">
+          <div if:true={next3}>
+          <section aria-describedby="dialog-body-id-107" aria-label="Dialog Title" class="slds-popover slds-nubbin_bottom" role="dialog">
+              <button class="slds-button slds-button_icon slds-button_icon-small slds-float_right slds-popover__close" title="Close dialog">
+                <svg class="slds-button__icon" aria-hidden="true">
+                  <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+                </svg>
+                <span class="slds-assistive-text">Close dialog</span>
+              </button>
+              <div class="slds-popover__body" id="dialog-body-id-109">
+                <div class="slds-media">
+                  <div class="slds-media__body">
+                    <p>You are now spinner</p>
+                  </div>
+                </div>
+              </div>
+              <footer class="slds-popover__footer">
+                <div class="slds-grid slds-grid_vertical-align-center">
+                  <lightning-button class="slds-button slds-button_neutral slds-col_bump-left" variant="brand-outline" onclick={handleSkip}>Skip</lightning-button>
+                  <lightning-button class="slds-button slds-button_neutral slds-col_bump-left" variant="brand" onclick={handleNext3}>Next</lightning-button>
+                </div>
+              </footer>
+            </section>
+          </div>
+      </lightning-layout-item>
+  
+  
+      <lightning-layout-item size="10" padding="around-small">
+          <div if:true={next4}>
+          <section aria-describedby="dialog-body-id-107" aria-label="Dialog Title" class="slds-popover slds-nubbin_bottom" role="dialog">
+              <button class="slds-button slds-button_icon slds-button_icon-small slds-float_right slds-popover__close" title="Close dialog">
+                <svg class="slds-button__icon" aria-hidden="true">
+                  <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+                </svg>
+                <span class="slds-assistive-text">Close dialog</span>
+              </button>
+              <div class="slds-popover__body" id="dialog-body-id-106">
+                <div class="slds-media">
+                  <div class="slds-media__body">
+                    <p>Please save your progress from here.</p>
+                  </div>
+                </div>
+              </div>
+              <footer class="slds-popover__footer">
+                <div class="slds-grid slds-grid_vertical-align-center">
+                  <lightning-button class="slds-button slds-button_neutral slds-col_bump-left" variant="brand-outline" onclick={handleSkip}>Skip</lightning-button>
+                  <lightning-button class="slds-button slds-button_neutral slds-col_bump-left" variant="brand" onclick={handleNext4}>Next</lightning-button>
+                </div>
+              </footer>
+            </section>
+          </div>
+      </lightning-layout-item>
+ 
+  </lightning-layout>
+  <lightning-layout>
+      <lightning-layout-item size="5" padding="around-small">
+        <div class="exampleHolder">
+          <lightning-spinner alternative-text="Loading" size="small"></lightning-spinner>
+      </div>
+      <div class="exampleHolder">
+          <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+      </div>
+      <div class="exampleHolder">
+          <lightning-spinner alternative-text="Loading" size="large"></lightning-spinner>
+      </div>
+      </lightning-layout-item >
+      <lightning-layout-item size="3.5" padding="around-small"></lightning-layout-item>
+      <lightning-layout-item size="4" padding="around-small">
+        <div class="slds-m-top_medium slds-m-bottom_x-large">
+          <lightning-button-group>
+              <lightning-button label="Edit"></lightning-button>
+              <lightning-button label="Save" icon-name="utility:save"></lightning-button>
+              <lightning-button label="Delete" variant="destructive" icon-name="utility:delete"></lightning-button>
+          </lightning-button-group>
+      </div>
+      </lightning-layout-item>
+  </lightning-layout>
+</lightning-card>
+</template>
