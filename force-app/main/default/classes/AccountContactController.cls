@@ -18,8 +18,8 @@ public class AccountContactController {
         AccountContactListWrapper accWrapper = new AccountContactListWrapper();
         accWrapper.accRecord = acc;
         accWrapper.contactList = acc.Contacts;
-        accWrapper.contactCount = acc.Contacts.size();
         accWrapperList.add(accWrapper);
+        System.debug(accWrapperList);
       }
     }
     return accWrapperList;
